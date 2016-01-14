@@ -29,3 +29,17 @@ if __name__ == '__main__':
         print ("<{True,False}, OR, False> is a monoid!")
     else:
         print("Something went wrong")
+
+    #Test set 2: Zn, (a+b)%n, 0
+    def Z(n): return ([i for i in range(0,n)], lambda x,y: (x + y) % n)
+    for i in range(2,40):
+        myset, add = Z(i)
+        if Monoid.testAssociativity(myset, add):
+            print ("OK")
+        else:
+            print ("KO")
+
+        if Monoid.testIdentity(myset, add, 0):
+            print ("OK")
+        else:
+            print("KO")
