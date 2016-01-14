@@ -14,6 +14,23 @@ class Monoid(object):
             testset = testset[0:Monoid.threshold]
         return reduce(lambda x,y: x and y, [True if operation(x,identity) == x else False for x in testset])
 
+class Group(Monoid):
+    def testInversion(testset, operation, identity):
+        if len(testset) > Monoid.threshold:
+            reducedtestset = testset[0:Monoid.threshold]
+        else:
+            reducedtestset = testset
+
+        for x in reducedtestset:
+            found = False
+            for y testset:
+                if operation(x,y) == identity:
+                    found = True
+                    break
+            if not found:
+                return False
+        return True
+
 
 if __name__ == '__main__':
     #Test set 1: {True,False}, OR, False
