@@ -11,8 +11,14 @@ class MyString(str):
         clean = clean.lower()
         return reduce(lambda x,y: x and y, map(lambda x: x[0]==x[1], zip(clean, clean[::-1])))
 
+    def subtract(self, string):
+        return MyString(re.sub("[" + string + "]", "", self.value))
+
 if __name__ == '__main__':
     pals = ["Rise to vote, sir", "Do geese see God?", "detartrated"]
     for p in pals:
         mp = MyString(p)
         print("Is \"{0}\" palindrome? {1}".format(mp, mp.isPalindrome()))
+
+    sub = MyString("Walter Cazzola")
+    print(sub.subtract(MyString("abcwxyz")))
