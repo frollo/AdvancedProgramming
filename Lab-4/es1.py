@@ -21,6 +21,9 @@ class MyString(str):
         cleanString = sorted(list(MyString.__cleanUp__(self.value)))
         return reduce(lambda x,y: x and y, map(lambda x: x[0]==x[1], zip(cleanValue, cleanString)))
 
+    def morePythonicDictAnagram(self, dictionary):
+        return [x for x in dictionary.keys() if self.__isAnagram__(x)] != []
+
     def dictAnagram(self, dictionary):
         return len(list(filter(lambda x: self.__isAnagram__(x), dictionary.keys()))) > 0
 
@@ -38,3 +41,5 @@ if __name__ == '__main__':
     diDict2 = {"chiesa": 0, "casa" : 1, "coca-cola": 2}
     print (diString.dictAnagram(diDict1))
     print (diString.dictAnagram(diDict2))
+    print (diString.morePythonicDictAnagram(diDict1))
+    print (diString.morePythonicDictAnagram(diDict2))
