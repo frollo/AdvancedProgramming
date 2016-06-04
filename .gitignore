@@ -1,2 +1,11 @@
 */*.pyc
 */__pycache__
+
+
+#exam material
+exams/2015-09-03/anagrams
+exams/2015-09-03/exec1
+exams/2015-09-03/exec2
+exams/2015-09-03/wc
+exams/2015-09-03/wikipedia-excerpt.txt
+exams/2015-09-03/wordlist-anagrams.txt
